@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_19_154540) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_19_212100) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "city"
@@ -40,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_154540) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "provided_services", force: :cascade do |t|
+    t.integer "organization_id", null: false
+    t.integer "services_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_provided_services_on_organization_id"
+    t.index ["services_id"], name: "index_provided_services_on_services_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.boolean "long_term_housing"
     t.boolean "immediate_housing"
@@ -60,5 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_154540) do
   end
 
   add_foreign_key "addresses", "organizations"
+  add_foreign_key "provided_services", "organizations"
+  add_foreign_key "provided_services", "services", column: "services_id"
   add_foreign_key "services", "organizations"
 end
