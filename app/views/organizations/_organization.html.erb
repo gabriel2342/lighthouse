@@ -1,22 +1,27 @@
-<div id="<%= dom_id organization %>">
-  <p>
-    <strong>Name:</strong>
-    <%= organization.name %>
-  </p>
+<div class="organization-<%= organization.id %> container"
+    style="border: 1px solid black; padding: 1em; margin: 1em;">
+  <div id="<%= dom_id organization %>">
+    <p>
+      <strong>Name:</strong>
+      <%= organization.name %>
+    </p>
 
-  <p>
-    <strong>About:</strong>
-    <%= organization.about %>
-  </p>
+    <p>
+      <strong>About:</strong>
+      <%= organization.about %>
+    </p>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= organization.phone %>
-  </p>
+    <p>
+      <strong>Phone:</strong>
+      <%= organization.phone %>
+    </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= organization.email %>
-  </p>
+    <p>
+      <strong>Email:</strong>
+      <%= organization.email %>
+    </p>
 
+  </div>
 </div>
+
+

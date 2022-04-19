@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Organizations</h1>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
 
-<div id="organizations">
-  <% @organizations.each do |organization| %>
-    <%= render organization %>
-    <p>
-      <%= link_to "Show this organization", organization %>
-    </p>
-  <% end %>
+  <h1>Organizations</h1>
+
+  <div id="organizations">
+    <% @organizations.each do |organization| %>
+      <%= render organization %>
+      <p>
+        <%= link_to "Show this organization", organization, class:"btn btn-primary" %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New organization", new_organization_path, class:"btn btn-primary" %>
 </div>
-
-<%= link_to "New organization", new_organization_path %>
