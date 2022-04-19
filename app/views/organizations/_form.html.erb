@@ -1,3 +1,5 @@
+  
+ <div class="container"> 
   <%= form_with(model: organization) do |form| %>
     <% if organization.errors.any? %>
       <div style="color: red">
@@ -21,19 +23,48 @@
       <%= form.text_area :about %>
     </div>
 
-    <div>
-      <%= render "hours/form" %>
-      <%= form.fields_for :addresses do |addy|%>
-        <%= addy.label :street, style: "display: block" %>
-        <%= addy.text_field :street %>
-        <%= addy.label :city, style: "display: block" %>
-        <%= addy.text_field :city %>
-        <%= addy.label :state, style: "display: block" %>
-        <%= addy.text_field :state %>
-        <%= addy.label "Zip Code", style: "display: block" %>
-        <%= addy.text_field :street %> 
-        <%= form.submit "Submit"%>
+    
+    <%= form.fields_for :addresses do |addy|%>
+      <div class="row">
+        <div class="col">
+          <%= addy.label :street, style: "display: block" %>
+          <%= addy.text_field :street %>
+        </div>
+        <div class="col">
+          <%= addy.label :city, style: "display: block" %>
+          <%= addy.text_field :city %>
+        </div>
+        <div class="col">
+          <%= addy.label :state, style: "display: block" %>
+          <%= addy.text_field :state %>
+        </div>
+        <div class="col">
+          <%= addy.label "Zip Code", style: "display: block" %>
+          <%= addy.text_field :street %> 
+        </div>
+      </div>
     <% end %>
+
+  <% 7.times do %>
+    <%= form.fields_for :hours do |f|%>
+      <div class="row">
+        <div class="col">
+          <%= f.label :day, style: "display: block" %>
+          <%= f.text_field :day %>
+        </div>
+        <div class="col">
+          <%= f.label :opens, style: "display: block" %>
+          <%= f.text_field :opens %>
+        </div>
+        <div class="col">
+          <%= f.label :closes, style: "display: block" %>
+          <%= f.text_field :closes %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+
     <div>
       <%= form.label :phone, style: "display: block" %>
       <%= form.text_field :phone %>

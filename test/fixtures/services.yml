@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  long_term_housing: false
+  immediate_housing: false
+  food: false
+  families: false
+  expenses: false
+  mental_health: false
+  substance_use: false
+  immigration: false
+  prisoner: false
+  domestic_violence: false
+  us_military: false
+  other: MyString
+  organization: one
+
+two:
+  long_term_housing: false
+  immediate_housing: false
+  food: false
+  families: false
+  expenses: false
+  mental_health: false
+  substance_use: false
+  immigration: false
+  prisoner: false
+  domestic_violence: false
+  us_military: false
+  other: MyString
+  organization: two

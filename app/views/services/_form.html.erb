@@ -1,0 +1,82 @@
+<%= form_with(model: service) do |form| %>
+  <% if service.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+      <ul>
+        <% service.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :long_term_housing, style: "display: block" %>
+    <%= form.check_box :long_term_housing %>
+  </div>
+
+  <div>
+    <%= form.label :immediate_housing, style: "display: block" %>
+    <%= form.check_box :immediate_housing %>
+  </div>
+
+  <div>
+    <%= form.label :food, style: "display: block" %>
+    <%= form.check_box :food %>
+  </div>
+
+  <div>
+    <%= form.label :families, style: "display: block" %>
+    <%= form.check_box :families %>
+  </div>
+
+  <div>
+    <%= form.label :expenses, style: "display: block" %>
+    <%= form.check_box :expenses %>
+  </div>
+
+  <div>
+    <%= form.label :mental_health, style: "display: block" %>
+    <%= form.check_box :mental_health %>
+  </div>
+
+  <div>
+    <%= form.label :substance_use, style: "display: block" %>
+    <%= form.check_box :substance_use %>
+  </div>
+
+  <div>
+    <%= form.label :immigration, style: "display: block" %>
+    <%= form.check_box :immigration %>
+  </div>
+
+  <div>
+    <%= form.label :prisoner, style: "display: block" %>
+    <%= form.check_box :prisoner %>
+  </div>
+
+  <div>
+    <%= form.label :domestic_violence, style: "display: block" %>
+    <%= form.check_box :domestic_violence %>
+  </div>
+
+  <div>
+    <%= form.label :us_military, style: "display: block" %>
+    <%= form.check_box :us_military %>
+  </div>
+
+  <div>
+    <%= form.label :other, style: "display: block" %>
+    <%= form.text_field :other %>
+  </div>
+
+  <div>
+    <%= form.label :organization_id, style: "display: block" %>
+    <%= form.text_field :organization_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
