@@ -1,0 +1,32 @@
+<%= form_with(model: hour) do |form| %>
+  <% if hour.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(hour.errors.count, "error") %> prohibited this hour from being saved:</h2>
+
+      <ul>
+        <% hour.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :day, style: "display: block" %>
+    <%= form.text_field :day %>
+  </div>
+
+  <div>
+    <%= form.label :opens, style: "display: block" %>
+    <%= form.text_field :opens %>
+  </div>
+
+  <div>
+    <%= form.label :closes, style: "display: block" %>
+    <%= form.text_field :closes %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

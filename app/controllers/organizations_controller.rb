@@ -13,6 +13,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/new
   def new
     @organization = Organization.new
+    @organization.addresses.build
   end
 
   # GET /organizations/1/edit
@@ -65,6 +66,6 @@ class OrganizationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def organization_params
-      params.require(:organization).permit(:name, :about, :phone, :email)
+      params.require(:organization).permit(:name, :about, :phone, :email, addresses_attributes: [:street, :city, :state, :zip])
     end
 end
