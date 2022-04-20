@@ -22,6 +22,12 @@ class OrganizationsController < ApplicationController
   def edit
   end
 
+  def add_address
+    @organization = Organization.new organization_params
+    @organization.addresses.build
+    render :new
+  end
+
   # POST /organizations or /organizations.json
   def create
     @organization = Organization.new(organization_params)
