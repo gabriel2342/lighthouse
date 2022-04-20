@@ -23,31 +23,27 @@
       <%= form.text_area :about %>
     </div>
 
-    <turbo-frame id="<%=form.field_id(:organizations)%>">
-      <%= form.fields_for :addresses do |addy|%>
-        <div class="row">
-          <div class="col">
-            <%= addy.label :street, style: "display: block" %>
-            <%= addy.text_field :street %>
-          </div>
-          <div class="col">
-            <%= addy.label :city, style: "display: block" %>
-            <%= addy.text_field :city %>
-          </div>
-          <div class="col">
-            <%= addy.label :state, style: "display: block" %>
-            <%= addy.text_field :state %>
-          </div>
-          <div class="col">
-            <%= addy.label "Zip Code", style: "display: block" %>
-            <%= addy.text_field :zip %> 
-          </div>
-        </div>
-      <% end %>
-    </turbo-frame>
-
-    <div> <%= form.button "Add Address", formmethod: 'post', formaction: '/organizations/add_address'  data: { turbo_frame: form.field_id(:organizations)} %></div>
-    <div> <%= form.submit%></div>
+    
+  <%= form.fields_for :addresses do |addy|%>
+    <div class="row">
+      <div class="col">
+        <%= addy.label :street, style: "display: block" %>
+        <%= addy.text_field :street %>
+      </div>
+      <div class="col">
+        <%= addy.label :city, style: "display: block" %>
+        <%= addy.text_field :city %>
+      </div>
+      <div class="col">
+        <%= addy.label :state, style: "display: block" %>
+        <%= addy.text_field :state %>
+      </div>
+      <div class="col">
+        <%= addy.label "Zip Code", style: "display: block" %>
+        <%= addy.text_field :zip %> 
+      </div>
+    </div>
+  <% end %>
 
   <%= form.fields_for :hours do |hours|%>
     <div class="row">
