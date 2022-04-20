@@ -23,27 +23,14 @@
       <%= form.text_area :about %>
     </div>
 
-    
-  <%= form.fields_for :addresses do |addy|%>
-    <div class="row">
-      <div class="col">
-        <%= addy.label :street, style: "display: block" %>
-        <%= addy.text_field :street %>
+  <div class="container">
+    <%= turbo_frame_tag "add_another_address" do %>
+      <div class="header">
+        <h4>Addresses</h4>
+        <%= link_to "Add New Address", new_address_path, data: { turbo_frame: "add_another_address"}, class: "btn btn-primary" %>
       </div>
-      <div class="col">
-        <%= addy.label :city, style: "display: block" %>
-        <%= addy.text_field :city %>
-      </div>
-      <div class="col">
-        <%= addy.label :state, style: "display: block" %>
-        <%= addy.text_field :state %>
-      </div>
-      <div class="col">
-        <%= addy.label "Zip Code", style: "display: block" %>
-        <%= addy.text_field :zip %> 
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
   <%= form.fields_for :hours do |hours|%>
     <div class="row">
@@ -109,8 +96,7 @@
     <%= check_box_tag(:us_military) %>
     <%= label_tag(:us_military, " Former or Current U.S. military? ") %>
   
-    <%= check_box_tag(:other)%>
-    <%= label_tag(:other, "Other") %>
+    <%= services.label :other, style: "display:block"%>
     <%= services.text_field :other%>
   <% end %>
 
