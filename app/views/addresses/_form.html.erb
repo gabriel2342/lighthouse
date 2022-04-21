@@ -30,7 +30,7 @@
         <%= form.text_field :zip %> 
       </div>
       <div>
-        <%= form.submit "Add Address" %>
+        <%= link_to "Add Address", new_address_path, class: "btn btn-primary" %>
     </div>
   <% end %>
 <% end %>
