@@ -23,11 +23,13 @@
       <%= form.text_area :about %>
     </div>
 
+  <% turbo_frame_tag 'new-record'%>
+  
   <div class="container">
     <%= turbo_frame_tag "add_another_address" do %>
       <div class="header">
         <h4>Addresses</h4>
-        <%= link_to "Add New Address", new_address_path, data: { turbo_frame: "add_another_address"}, class: "btn btn-primary" %>
+        <%= link_to "Add New Address", new_address_path,  class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
