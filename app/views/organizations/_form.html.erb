@@ -12,17 +12,21 @@
         </ul>
       </div>
     <% end %>
+
     <div>
+      <%= form.label "Add a logo"%><br>
       <%= form.file_field :avatar %>
-    </div>
+    </div><br>
+    
+    <div>
       <%= form.label :name, style: "display: block" %>
       <%= form.text_field :name %>
-    </div>
+    </div><br>
 
     <div>
       <%= form.label :about, style: "display: block" %>
       <%= form.text_area :about %>
-    </div>
+    </div><br>
 
   <div class="container">
     <%= turbo_frame_tag "add_another_address" do %>
@@ -47,7 +51,7 @@
         <%= hours.label :closes, style: "display: block" %>
         <%= hours.text_field :closes %>
       </div>
-    </div>
+    </div><br>
   <% end %>
 
 
