@@ -27,18 +27,13 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
 
-    respond_to do |format|
-      if params[:address]
-        @organization.addresses.build
+    respond_to do |format|    
+      if @organization.save
+        format.html { redirect_to organization_url(@organization), notice: "Organization was successfully created." }
+        format.json { render :show, status: :created, location: @organization }
+      else
         format.html { render :new, status: :unprocessable_entity }
-      else     
-        if @organization.save
-          format.html { redirect_to organization_url(@organization), notice: "Organization was successfully created." }
-          format.json { render :show, status: :created, location: @organization }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @organization.errors, status: :unprocessable_entity }
-        end
+        format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
     end
   end

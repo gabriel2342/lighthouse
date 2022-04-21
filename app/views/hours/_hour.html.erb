@@ -1,17 +1,29 @@
 <div id="<%= dom_id hour %>">
-  <p>
-    <strong>Day:</strong>
-    <%= hour.day %>
-  </p>
 
-  <p>
-    <strong>Opens:</strong>
-    <%= hour.opens %>
-  </p>
+  <div class="container"> 
+    <div class="row">
 
-  <p>
-    <strong>Closes:</strong>
-    <%= hour.closes %>
-  </p>
+      <div class="col">
+        <p>
+          <strong>Day:</strong>
+          <%= hour.day %>
+        </p>
 
+      </div>
+      <div class="col">
+        <p>
+          <strong>Opens:</strong>
+          <%= hour.opens %>
+        </p>
+      </div>
+
+      <div class="col">
+        <p>
+          <strong>Closes:</strong>
+          <%= hour.closes %>
+        </p>
+      </div>
+
+    </div>
+  </div>
 </div>
