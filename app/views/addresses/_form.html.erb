@@ -30,7 +30,7 @@
         <%= form.text_field :zip %> 
       </div>
       <div>
-        <%= form.submit "Add Address" %>
+        <%= link_to "Add Address", new_address_path, data: { turbo_frame: data-turbo-frame="new_record_#{params.fetch(:index) + 1}"}, class: "btn btn-primary" %>
     </div>
   <% end %>
 <% end %>
