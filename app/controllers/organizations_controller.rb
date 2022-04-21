@@ -13,6 +13,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/new
   def new
     @organization = Organization.new
+    @address = Address.new
     @organization.addresses.build
     7.times { @organization.hours.build }
     @organization.services.build
@@ -27,12 +28,17 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
 
     respond_to do |format|
-      if @organization.save
-        format.html { redirect_to organization_url(@organization), notice: "Organization was successfully created." }
-        format.json { render :show, status: :created, location: @organization }
-      else
+      if params[:address]
+        @organization.addresses.build
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @organization.errors, status: :unprocessable_entity }
+      else     
+        if @organization.save
+          format.html { redirect_to organization_url(@organization), notice: "Organization was successfully created." }
+          format.json { render :show, status: :created, location: @organization }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @organization.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
