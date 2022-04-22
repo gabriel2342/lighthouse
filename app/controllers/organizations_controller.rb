@@ -71,6 +71,6 @@ class OrganizationsController < ApplicationController
     def organization_params
       params.require(:organization).permit(:avatar, :name, :about, :phone, :email, :organization_id, addresses_attributes: [:street, :city, :state, :zip],
                                            hours_attributes: [:day, :opens, :closes],
-                                           services_attributes: [:long_term_housing, :immediate_housing, :food, :families, :expenses, :mental_health, :substance_use, :immigration, :prisoner, :domestic_violence, :us_military, :other])
+                                           service_ids: [])
     end
 end

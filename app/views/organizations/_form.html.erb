@@ -67,43 +67,7 @@
 
     <h4>Services Provided: </h4>
 
-  <%= form.fields_for :services do |services|%>
-    <%= check_box_tag(:long_term_housing) %>
-    <%= label_tag(:long_term_housing, " Long Term Housing ") %>
-    
-    <%= check_box_tag(:immediate_housing) %>
-    <%= label_tag(:immediate_housing, " Immediate Housing ") %>
-    
-    <%= check_box_tag(:food) %>
-    <%= label_tag(:food, " Finding Food ") %><br>
-    
-    <%= check_box_tag(:families) %>
-    <%= label_tag(:families, " Family Services ") %>
-    
-    <%= check_box_tag(:expenses) %>
-    <%= label_tag(:expenses, " Living Expenses ") %>
-    
-    <%= check_box_tag(:mental_health) %>
-    <%= label_tag(:mental_health, " Mental Health Services ") %><br>
-
-    <%= check_box_tag(:substance_use) %>
-    <%= label_tag(:substance_use, " Substance Use ") %>
-
-    <%= check_box_tag(:immigratioin) %>
-    <%= label_tag(:immigration, " Immigration ") %>
-
-    <%= check_box_tag(:prisoner) %>
-    <%= label_tag(:prisoner, " Prisoner Re-entry ") %><br>
-
-    <%= check_box_tag(:domestic_violence) %>
-    <%= label_tag(:domestic_violence, " Domestic Violence ") %>
-
-    <%= check_box_tag(:us_military) %>
-    <%= label_tag(:us_military, " Former or Current U.S. military? ") %>
-  
-    <%= services.label :other, style: "display:block"%>
-    <%= services.text_field :other%>
-  <% end %>
+  <%= form.collection_check_boxes :service_ids, Service.all, :id, :name %>    
 
   <div>
     <%= form.submit %>

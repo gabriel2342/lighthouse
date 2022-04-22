@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_22_011348) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_22_011821) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -79,20 +79,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_011348) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.boolean "long_term_housing"
-    t.boolean "immediate_housing"
-    t.boolean "food"
-    t.boolean "families"
-    t.boolean "expenses"
-    t.boolean "mental_health"
-    t.boolean "substance_use"
-    t.boolean "immigration"
-    t.boolean "prisoner"
-    t.boolean "domestic_violence"
-    t.boolean "us_military"
-    t.string "other"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
