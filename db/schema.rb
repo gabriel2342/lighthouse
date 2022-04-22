@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_21_174716) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_22_011348) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -71,11 +71,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_174716) do
 
   create_table "provided_services", force: :cascade do |t|
     t.integer "organization_id", null: false
-    t.integer "services_id", null: false
+    t.integer "service_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_provided_services_on_organization_id"
-    t.index ["services_id"], name: "index_provided_services_on_services_id"
+    t.index ["service_id"], name: "index_provided_services_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -91,16 +91,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_174716) do
     t.boolean "domestic_violence"
     t.boolean "us_military"
     t.string "other"
-    t.integer "organization_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["organization_id"], name: "index_services_on_organization_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "organizations"
   add_foreign_key "provided_services", "organizations"
-  add_foreign_key "provided_services", "services", column: "services_id"
-  add_foreign_key "services", "organizations"
+  add_foreign_key "provided_services", "services"
 end
