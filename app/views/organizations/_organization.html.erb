@@ -36,7 +36,7 @@
 
     <p>
     <strong>Services:</strong>
-    <%# <%= render organization.services %> 
+      <%= organization.services.map { |service| service.capitalize}.to_sentence %> 
     </p>
 
   </div>

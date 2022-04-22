@@ -34,7 +34,12 @@
    <div>
      <%= form.label :email, style: "display: block" %>
      <%= form.text_field :email %>
-   </div>
+   </div> 
+   <div>
+     <%= form.label :services, style: "display: block" %>
+     <%= form.text_field :services %>
+   </div> 
+
    <br>
  
         <h4>Addresses</h4>
@@ -82,8 +87,10 @@
  
  
    <h4>Services Provided: </h4>
- 
- <%= form.collection_check_boxes :service_ids, Service.all, :id, :name %>   
+  <% Organization::SERVICES_PROVIDED.each do |key| %>
+    <%= form.check_box "services[]", { multiple: true, checked: form.object.services&.include?(key.to_s) }, key, nil %>
+    <%= form.label key %>
+  <% end %>
  
  <div>
    <%= form.submit %>
