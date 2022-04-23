@@ -14,7 +14,7 @@
  
    <div>
      <%= form.label "Add a logo"%><br>
-     <%= form.file_field :image %>
+     <%= form.file_field :avatar %>
    </div><br>
   
    <div>
@@ -44,7 +44,7 @@
 
     <h4>Services Provided: </h4>
   <% Organization::SERVICES_PROVIDED.each do |key| %>
-    <%= form.check_box :services, { multiple: true, checked: form.object.services&.include?(key) }, key, nil %>
+    <%= form.check_box "services[]", { multiple: true, checked: form.object.services&.include?(key) }, key, nil %>
     <%= form.label key %>
   <% end %>
  
@@ -70,23 +70,24 @@
    </div>
  <br>
  <h4> Operating Hours </h4>
- 
- <%= form.fields_for :hours do |hour|%>
-   <div class="row">
-     <div class="col">
-       <%= hour.label :day, style: "display: block" %>
-       <%= hour.text_field :day %>
-     </div>
-     <div class="col">
-       <%= hour.label :opens, style: "display: block" %>
-       <%= hour.text_field :opens %>
-     </div>
-     <div class="col">
-       <%= hour.label :closes, style: "display: block" %>
-       <%= hour.text_field :closes %>
-     </div>
-   </div><br>
- <% end %>
+ <%= Hour.days.each do |day, id|%>
+  <%= form.fields_for "hours_attributes[]", Hour.new do |hour|%>
+    <div class="row">
+      <div class="col">
+        <%= hour.label day, style: "display: block" %>
+        <%= hour.hidden_field :day, value: day%>
+      </div>
+      <div class="col">
+        <%= hour.label :opens, style: "display: block" %>
+        <%= hour.text_field :opens %>
+      </div>
+      <div class="col">
+        <%= hour.label :closes, style: "display: block" %>
+        <%= hour.text_field :closes %>
+      </div>
+    </div><br>
+  <% end %>
+<% end %>
  
  
  

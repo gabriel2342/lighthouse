@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_23_015856) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_23_220108) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,12 +54,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_015856) do
   end
 
   create_table "hours", force: :cascade do |t|
-    t.string "day"
     t.string "opens"
     t.string "closes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "organization_id"
+    t.integer "day"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -70,6 +70,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_015856) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "services", default: [], array: true
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
   end
 
   create_table "provided_services", force: :cascade do |t|
