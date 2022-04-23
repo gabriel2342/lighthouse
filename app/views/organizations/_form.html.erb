@@ -14,7 +14,7 @@
  
    <div>
      <%= form.label "Add a logo"%><br>
-     <%= form.file_field :avatar %>
+     <%= form.file_field :image %>
    </div><br>
   
    <div>
@@ -50,7 +50,6 @@
  
         <h4>Addresses</h4>
      
- <%= form.fields_for :addresses do |addresses|%>
    <div class="row">
      <div class="col">
        <%= form.label :street, style: "display: block" %>
@@ -66,26 +65,25 @@
      </div>
      <div class="col">
        <%= form.label "Zip Code", style: "display: block" %>
-       <%= form.text_field :zip %>
+       <%= form.text_field :zip_code %>
      </div>
    </div>
- <%end %>
  <br>
  <h4> Operating Hours </h4>
  
- <%= form.fields_for :hours do |hours|%>
+ <%= form.fields_for :hours do |hour|%>
    <div class="row">
      <div class="col">
-       <%= hours.label :day, style: "display: block" %>
-       <%= hours.text_field :day %>
+       <%= hour.label :day, style: "display: block" %>
+       <%= hour.text_field :day %>
      </div>
      <div class="col">
-       <%= hours.label :opens, style: "display: block" %>
-       <%= hours.text_field :opens %>
+       <%= hour.label :opens, style: "display: block" %>
+       <%= hour.text_field :opens %>
      </div>
      <div class="col">
-       <%= hours.label :closes, style: "display: block" %>
-       <%= hours.text_field :closes %>
+       <%= hour.label :closes, style: "display: block" %>
+       <%= hour.text_field :closes %>
      </div>
    </div><br>
  <% end %>

@@ -4,40 +4,63 @@
 <div class="organization-<%= organization.id %> container"
     style="border: 1px solid black; padding: 1em; margin: 1em;">
   <div id="<%= dom_id organization %>">
+      <p>
+        <%= image_tag(organization.image) %>
+      </p>
+    
     <p>
-      <strong>Name:</strong>
-      <%= organization.name %>
+      <div class="text-center">
+        <strong>Name:</strong>
+        <%= organization.name %>
+      </div>
     </p>
 
     <p>
+    <div class="text-center">
       <strong>About:</strong>
       <%= organization.about %>
+    </div>
     </p>
 
     <p>
-      <strong>Phone:</strong>
-      <%= organization.phone %>
+      <div class="text-center">
+        <strong>Phone:</strong>
+        <%= organization.phone %>
+      </div> 
     </p>
 
     <p>
-      <strong>Email:</strong>
-      <%= organization.email %>
+      <div class="text-center">
+        <strong>Email:</strong>
+        <%= organization.email %>
+      </div>
     </p>
 
     <p>
-      <strong>Address:</strong>
-      <%= render organization.addresses %> 
+        <div class="container" >
+          <div class="text-center">
+            <strong>Address:</strong>
+            <%= organization.street %> <br> 
+            <%= organization.city + ", " + organization.state  %>
+            <%=" #{organization.zip_code}"%>
+          </div>
+        </div>
+    </p>
+
+    <p>
+      <div class="text-center">
+        <strong>Services:</strong>
+        <%= (organization.services.each do |service| service end).to_sentence %> 
+      </div>
     </p>
 
     <p>
     <strong>Hours:</strong>
-    <%= render organization.hours %>
+    <%= organization.hours.each do |hour| hour end %>
     </p>
 
     <p>
-    <strong>Services:</strong>
-      <%= organization.services.each do |service| service end %> 
-    </p>
+    
 
   </div>
 </div>
