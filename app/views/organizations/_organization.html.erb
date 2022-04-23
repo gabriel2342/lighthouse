@@ -36,7 +36,7 @@
 
     <p>
     <strong>Services:</strong>
-      <%= organization.services.map { |service| service.capitalize}.to_sentence %> 
+      <%= organization.services.each do |service| service end %> 
     </p>
 
   </div>

@@ -41,6 +41,12 @@
    </div> 
 
    <br>
+
+    <h4>Services Provided: </h4>
+  <% Organization::SERVICES_PROVIDED.each do |key| %>
+    <%= form.check_box :services, { multiple: true, checked: form.object.services&.include?(key) }, key, nil %>
+    <%= form.label key %>
+  <% end %>
  
         <h4>Addresses</h4>
      
@@ -86,11 +92,7 @@
  
  
  
-   <h4>Services Provided: </h4>
-  <% Organization::SERVICES_PROVIDED.each do |key| %>
-    <%= form.check_box "services[]", { multiple: true, checked: form.object.services&.include?(key.to_s) }, key, nil %>
-    <%= form.label key %>
-  <% end %>
+  
  
  <div>
    <%= form.submit %>
