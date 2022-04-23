@@ -35,17 +35,15 @@
      <%= form.label :email, style: "display: block" %>
      <%= form.text_field :email %>
    </div> 
-   <div>
-     <%= form.label :services, style: "display: block" %>
-     <%= form.text_field :services %>
-   </div> 
 
    <br>
 
     <h4>Services Provided: </h4>
   <% Organization::SERVICES_PROVIDED.each do |key| %>
-    <%= form.check_box "services[]", { multiple: true, checked: form.object.services&.include?(key) }, key, nil %>
-    <%= form.label key %>
+    <%= form.label "services_#{key.downcase.split(" ").join("_")}" do %>
+      <%= form.check_box :services, { multiple: true, checked: form.object.services&.include?(key) }, key, nil %>
+      <%= key %>
+    <% end %>
   <% end %>
  
         <h4>Addresses</h4>

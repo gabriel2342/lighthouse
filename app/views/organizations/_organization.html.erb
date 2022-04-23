@@ -51,7 +51,9 @@
     <p>
       <div class="text-center">
         <strong>Services:</strong>
-        <%= (organization.services.each do |service| service end).to_sentence %> 
+        <% organization.services.each do |service| %>
+          <%= service.to_s %>
+        <% end %>
       </div>
     </p>
 
